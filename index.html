@@ -11,9 +11,9 @@
         <header>
             <h1>Meme Generator</h1>
             <nav>
-                <button class="gallery" onclick="getGallery()">Gallery</button>
-                <button class="saved" onclick="getSaved()">Saved</button>
-                <button class="random" onclick="getRandom()">RandoMeme</button>
+                <button class="gallery" onclick="showGallery()">Gallery</button>
+                <button class="saved" onclick="showSaved()">Saved</button>
+                <button class="random" onclick="showRandom()">RandoMeme</button>
                 <select class="lang">
                     <option id="en" value="en">English</option>
                 </select>
@@ -54,6 +54,7 @@
 
         <script src="js/utils.js"></script>
         <script src="js/servises/memeService.js"></script>
+        <script src="js/servises/galleryService.js"></script>
         <script src="js/controllers/mainController.js"></script>
         <script src="js/controllers/memeController.js"></script>
         <script src="js/controllers/galleryController.js"></script>

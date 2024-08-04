@@ -1,18 +1,20 @@
 "use strict"
 
-function getGallery() {
+function showGallery() {
     clearDom()
     const elGallery = document.querySelector(`.gallery-container`)
+    debugger    
+    renderGallery()
     elGallery.style.display = "block"
 }
 
-function getSaved() {
+function showSaved() {
     clearDom()
     const elSaved = document.querySelector(`.saved-container`)
     elSaved.style.display = "block"
 }
 
-function getRandom() {
+function showRandom() {
     clearDom()
     const elEditor = document.querySelector(`.editor-container`)
     elEditor.style.display = "block"

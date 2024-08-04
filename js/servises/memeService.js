@@ -1,7 +1,5 @@
 "use strict"
 
-// let gImgs = [{ id: 1, url: "img/1.jpg", keywords: ["funny", "cat"] }]
-
 let gMeme = {
     selectedImgId: 10,
     selectedLineIdx: 0,
@@ -13,8 +11,6 @@ let gMeme = {
         },
     ],
 }
-
-// let gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 
 function getMeme() {
     return gMeme    
