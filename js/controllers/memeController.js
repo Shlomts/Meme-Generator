@@ -3,7 +3,19 @@
 let gElCanvas
 let gCtx
 
-function onInit() {
+
+
+function onUserSet(ev) {
+    ev.preventDefault()
+
+	const { target: elForm } = ev
+	const formData = new FormData(elForm)
+	const userOps = Object.fromEntries(formData)
+    setMeme(userOps)
+
+    // renderMeme()
+
+    // setColors(user.bckClr, user.txtClr)
 
 }
 
@@ -34,5 +46,7 @@ function drawText(text, x, y) {
 
 function onDraw(ev) {
     const { offsetX, offsetY } = ev
-    drawText("Hello", offsetX, offsetY)
+    const MEME = getMeme()
+
+    drawText(MEME.lines[0].txt, offsetX, offsetY)
 }
