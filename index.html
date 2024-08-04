@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Meme Generator</title>
+    </head>
+    <body>
+
+        <header>
+            <h1>Meme Generator</h1>
+            <nav>
+                <button class="gallery" onclick="getGallery()">Gallery</button>
+                <button class="saved" onclick="getSaved()">Saved</button>
+                <button class="random" onclick="getRandom()">RandoMeme</button>
+                <select class="lang">
+                    <option value="en">English</option>
+                </select>
+            </nav>
+        </header>
+
+        <div class="gallery-container">
+            <section class="gallery-ops-container">
+                <input type="search" placeholder="Search" />
+            </section>
+
+            <section class="memes-gallery"></section>
+        </div>
+
+        <div class="editor-container">
+            <section class="canvas-container">
+                <canvas width="450" height="450" onclick="onDraw(event)">
+                </canvas>
+            </section>
+
+            <section class="editor-ops-container">
+            </section>
+        </div>
+        <div class="saved-container">
+            <section class="saved-gallery"></section>   
+        </div>
+
+        <script src="js/controllers/mainController.js"></script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+div {
+    display: none;
+}
+
+section {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+
+.canvas-container {
+    width: 80vw;
+    margin: 10px auto;
+    background-color: brown;
+    border: 1px solid black;
+}
+
+canvas {
+    background-color: white;
+    border: 1px solid black;
+}
+/* 
+.select-img-container img {
+    width: 200px;
+    cursor: pointer;
+    filter: grayscale(1);
+}
+
+.select-img-container img:hover {
+    transition: 0.5s;
+    filter: unset;
+} */
