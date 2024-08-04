@@ -11,3 +11,9 @@ function getSaved() {
     const elSaved = document.querySelector(`.saved-container`)
     elSaved.style.display="block"
 }
+
+function getRandom() {
+    document.querySelector(`div`).style.display="none"
+    const elEditor = document.querySelector(`.editor-container`)
+    elEditor.style.display="block"
+}
