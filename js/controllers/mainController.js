@@ -1,19 +1,26 @@
-'use strict'
+"use strict"
 
 function getGallery() {
-    document.querySelector(`div`).style.display="none"
+    clearDom()
     const elGallery = document.querySelector(`.gallery-container`)
-    elGallery.style.display="block"
+    elGallery.style.display = "block"
 }
 
 function getSaved() {
-    document.querySelector(`div`).style.display="none"
+    clearDom()
     const elSaved = document.querySelector(`.saved-container`)
-    elSaved.style.display="block"
+    elSaved.style.display = "block"
 }
 
 function getRandom() {
-    document.querySelector(`div`).style.display="none"
+    clearDom()
     const elEditor = document.querySelector(`.editor-container`)
-    elEditor.style.display="block"
+    elEditor.style.display = "block"
+    renderMeme()
+}
+
+function clearDom() {
+    document.querySelector(`.gallery-container`).style.display = "none"
+    document.querySelector(`.saved-container`).style.display = "none"
+    document.querySelector(`.editor-container`).style.display = "none"
 }
