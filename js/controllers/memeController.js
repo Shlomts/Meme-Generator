@@ -11,7 +11,7 @@ function onUserSet(ev) {
 	const { target: elForm } = ev
 	const formData = new FormData(elForm)
 	const userOps = Object.fromEntries(formData)
-    setMeme(userOps)
+    setMemeLines(userOps)
 
     // renderMeme()
 
