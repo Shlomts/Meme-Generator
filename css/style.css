@@ -2,6 +2,9 @@
     box-sizing: border-box;
 }
 
+/* @import url(cmps/galleryStyle.css); */
+
+
 body {
     text-align: center;
 }
@@ -16,7 +19,19 @@ section {
     display: flex;
 }
 
+.memes-gallery-grid {
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(auto, 50vh));
+    width: fit-content;
+    margin: 100px auto;
+    background-color: white;
+    gap: 20px;
+}
 
+img {
+    size: 100%;
+}
 .canvas-container {
     width: 80vw;
     margin: 10px auto;
@@ -28,6 +43,8 @@ canvas {
     background-color: white;
     border: 1px solid black;
 }
+
+
 /* 
 .select-img-container img {
     width: 200px;
