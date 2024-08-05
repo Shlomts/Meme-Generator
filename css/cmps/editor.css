@@ -3,7 +3,7 @@
 }
 
 .canvas-container {
-    width: 80vw;
+    width: auto;
     margin: 10px auto;
     background-color: brown;
     border: 1px solid black;
@@ -12,4 +12,13 @@
 canvas {
     background-color: white;
     border: 1px solid black;
+}
+/* 
+.editor-ops-container {
+    
+} */
+
+.editor-container{
+    display: flex;
+    align-items: center;
 }

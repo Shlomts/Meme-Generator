@@ -16,7 +16,7 @@ function showSaved() {
 function openEditor() {
     clearDom()
     const elEditor = document.querySelector(`.editor-container`)
-    elEditor.style.display = "block"
+    elEditor.style.display = "flex"
 }
 
 function showRandom() {
