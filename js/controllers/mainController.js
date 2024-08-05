@@ -3,7 +3,6 @@
 function showGallery() {
     clearDom()
     const elGallery = document.querySelector(`.gallery-container`)
-    debugger    
     renderGallery()
     elGallery.style.display = "block"
 }
@@ -14,10 +13,14 @@ function showSaved() {
     elSaved.style.display = "block"
 }
 
-function showRandom() {
+function openEditor() {
     clearDom()
     const elEditor = document.querySelector(`.editor-container`)
     elEditor.style.display = "block"
+}
+
+function showRandom() {
+    openEditor()
     renderMeme()
 }
 
