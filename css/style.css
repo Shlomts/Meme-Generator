@@ -1,58 +1,23 @@
-* {
-    box-sizing: border-box;
-}
+/* SETUP */
 
-/* @import url(cmps/galleryStyle.css); */
+/* @import url(setup/vars.css);
+@import url(setup/typography.css); */
 
+/* BASICS  */
 
-body {
-    text-align: center;
-}
+@import url(basics/base.css);
+/* @import url(basics/helpers.css);
+@import url(basics/layout.css); */
 
-div {
-    display: none;
-}
+/* CMPS */
 
-section {
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-.memes-gallery-grid {
-    background-color: aquamarine;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(auto, 50vh));
-    width: fit-content;
-    margin: 100px auto;
-    background-color: white;
-    gap: 20px;
-}
-
-img {
-    size: 100%;
-}
-.canvas-container {
-    width: 80vw;
-    margin: 10px auto;
-    background-color: brown;
-    border: 1px solid black;
-}
-
-canvas {
-    background-color: white;
-    border: 1px solid black;
-}
+@import url(cmps/gallery.css);
+@import url(cmps/editor.css);
+/* @import url(cmps/main-header.css);
+@import url(cmps/main-screen.css); */
 
 
-/* 
-.select-img-container img {
-    width: 200px;
-    cursor: pointer;
-    filter: grayscale(1);
-}
+/* MQ */
 
-.select-img-container img:hover {
-    transition: 0.5s;
-    filter: unset;
-} */
+/* @import url(setup/mq.css); */
+

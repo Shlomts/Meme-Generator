@@ -1,0 +1,72 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+  font-family: playfair, serif;
+  color: var(--primary-base);
+  line-height: 1.7142857142;
+}
+
+
+body {
+  text-align: center;
+}
+
+div {
+  display: none;
+}
+
+section {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+
+img {
+  size: 100%;
+}
+
+
+
+
+
+/* body {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  margin: 0 0 1em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+h2 {
+    font-size: 2.142857142em;
+}
+
+p {
+    margin: 0 0 1em;
+    text-wrap: pretty;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--primary-1);
+}
+
+a:hover {
+  text-decoration: none;
+} */

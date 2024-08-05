@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10px;
+    background-color: antiquewhite;
+}
+
+.memes-gallery-grid {
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(auto, 50vh));
+    width: fit-content;
+    margin: 100px auto;
+    background-color: white;
+    gap: 20px;
+}
+
+
+
+/* 
+.select-img-container img {
+    width: 200px;
+    cursor: pointer;
+    filter: grayscale(1);
+}
+
+.select-img-container img:hover {
+    transition: 0.5s;
+    filter: unset;
+} */
