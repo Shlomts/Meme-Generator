@@ -20,8 +20,11 @@ function openEditor() {
 }
 
 function showRandom() {
-    openEditor()
+    const gallery = getGallery()
+    const id = getRandomIntInclusive(0, gallery.length-1)
+    setMemeImg(gallery[id])
     renderMeme()
+    openEditor()
 }
 
 function clearDom() {
