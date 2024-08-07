@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 let gElCanvas
 let gCtx
@@ -11,7 +11,9 @@ function onUserSet(ev) {
 	const { target: elForm } = ev
 	const formData = new FormData(elForm)
 	const userOps = Object.fromEntries(formData)
+    console.log(userOps)
     setMemeLines(userOps)
+    setFontColors(userOps)
     // renderMeme()
 
     // setColors(user.bckClr, user.txtClr)
@@ -31,14 +33,14 @@ function renderMeme() {
 }
 
 function drawText(text, x, y) {
+    const meme = getMeme()
     gCtx.beginPath()
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = "brown"
-    gCtx.fillStyle = "black"
+    gCtx.lineWidth = meme.lines[0].size
+    gCtx.strokeStyle = meme.lines[0].lineColor
+    gCtx.fillStyle = meme.lines[0].color
     gCtx.font = "40px Arial"
     gCtx.textAlign = "center"
     gCtx.textBaseline = "middle"
-
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
@@ -46,7 +48,6 @@ function drawText(text, x, y) {
 function onDraw(ev) {
     const { offsetX, offsetY } = ev
     const meme = getMeme()
-
     drawText(meme.lines[0].txt, offsetX, offsetY)
 }
 

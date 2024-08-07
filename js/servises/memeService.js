@@ -6,8 +6,9 @@ let gMeme = {
     lines: [
         {
             txt: "I sometimes eat Falafel",
-            size: 20,
-            color: "red",
+            size: 1,
+            color: "white",
+            lineColor: "black",
         },
     ],
 }
@@ -24,6 +25,11 @@ function setMemeLines(obj) {
 
 function setMemeImg(img) {
     gMeme.selectedImgId = img.id
+}
+
+function setFontColors(obj) {
+    gMeme.lines[0].color = obj.color || "white"
+    gMeme.lines[0].lineColor = obj.lineColor || "black"
 }
 
 function selectLine() {
