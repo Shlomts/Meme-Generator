@@ -23,6 +23,12 @@ function addLine() {
     renderMeme()
 }
 
+function switchLine() {
+    selectLine()
+    renderMeme()
+}
+
+
 
 function renderMeme() {
     gElCanvas = document.querySelector("canvas")
@@ -33,23 +39,22 @@ function renderMeme() {
 
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
-        drawText(meme.lines[0].txt, gElCanvas.width / 2, 50)
+        drawText(meme.lines[0], gElCanvas.width / 2, 50)
         if(!meme.lines[1]) return
-        drawText(meme.lines[1].txt, gElCanvas.width / 2, gElCanvas.height-50)
+        drawText(meme.lines[1], gElCanvas.width / 2, gElCanvas.height-50)
     }
 }
 
-function drawText(text, x, y) {
-    const meme = getMeme()
+function drawText(line, x, y) {
     gCtx.beginPath()
-    gCtx.lineWidth = meme.lines[0].lineWidth
-    gCtx.strokeStyle = meme.lines[0].lineColor
-    gCtx.fillStyle = meme.lines[0].color
-    gCtx.font = `${meme.lines[0].size}px Arial`
+    gCtx.lineWidth = line.lineWidth
+    gCtx.strokeStyle = line.lineColor
+    gCtx.fillStyle = line.color
+    gCtx.font = `${line.size}px Arial`
     gCtx.textAlign = "center"
     gCtx.textBaseline = "middle"
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(line.txt, x, y)
+    gCtx.strokeText(line.txt, x, y)
 }
 
 function onDownload(elLink) {

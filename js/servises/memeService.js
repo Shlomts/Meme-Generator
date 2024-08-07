@@ -19,7 +19,7 @@ function getMeme() {
 }
 
 function setMemeLines(str) {
-    gMeme.lines[0].txt = str
+    gMeme.lines[gMeme.selectedLineIdx].txt = str
 }
 
 function setMemeImg(img) {
@@ -27,15 +27,15 @@ function setMemeImg(img) {
 }
 
 function setFillColor(clr) {
-    gMeme.lines[0].color = clr || "white"
+    gMeme.lines[gMeme.selectedLineIdx].color = clr || "white"
 }
 
 function setLineColor(clr) {
-    gMeme.lines[0].lineColor = clr || "black"
+    gMeme.lines[gMeme.selectedLineIdx].lineColor = clr || "black"
 }
 
 function changeLineSize(size) {
-    gMeme.lines[0].size += size
+    gMeme.lines[gMeme.selectedLineIdx].size += size
 }
 
 function creatLine() {
@@ -48,6 +48,7 @@ function creatLine() {
     },)
 }
 
-// function selectLine() {
-    
-// }
+function selectLine() {
+    if(!gMeme.lines[1]) return
+    gMeme.selectedLineIdx = Math.abs(gMeme.selectedLineIdx-1)
+}
