@@ -7,7 +7,7 @@ let gMeme = {
         {
             txt: "I sometimes eat Falafel",
             lineWidth: 1,
-            font: "40px Arial",
+            size: 40,
             color: "white",
             lineColor: "black",
         },
@@ -34,9 +34,9 @@ function setLineColor(clr) {
     gMeme.lines[0].lineColor = clr || "black"
 }
 
-// function setFont(str) {
-
-// }
+function changeLineSize(size) {
+    gMeme.lines[0].size += size
+}
 
 // function selectLine() {
     

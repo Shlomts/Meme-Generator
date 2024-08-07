@@ -38,7 +38,7 @@ function drawText(text, x, y) {
     gCtx.lineWidth = meme.lines[0].lineWidth
     gCtx.strokeStyle = meme.lines[0].lineColor
     gCtx.fillStyle = meme.lines[0].color
-    gCtx.font = meme.lines[0].font
+    gCtx.font = `${meme.lines[0].size}px Arial`
     gCtx.textAlign = "center"
     gCtx.textBaseline = "middle"
     gCtx.fillText(text, x, y)
@@ -50,7 +50,12 @@ function onDownload(elLink) {
     elLink.href = meme
 }
 
-// function increaseFont() {
-//     const meme = getMeme()
-//     meme.lines[0]
-// }
+function increaseFont() {
+    changeLineSize(5)
+    renderMeme()
+}
+
+function decreaseFont() {
+    changeLineSize(-5)
+    renderMeme()
+}
