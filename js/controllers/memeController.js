@@ -18,6 +18,11 @@ function onSetLineColor(ev) {
     renderMeme()
 }
 
+function addLine() {
+    creatLine()
+    renderMeme()
+}
+
 
 function renderMeme() {
     gElCanvas = document.querySelector("canvas")
@@ -29,6 +34,8 @@ function renderMeme() {
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
         drawText(meme.lines[0].txt, gElCanvas.width / 2, 50)
+        if(!meme.lines[1]) return
+        drawText(meme.lines[1].txt, gElCanvas.width / 2, gElCanvas.height-50)
     }
 }
 
