@@ -12,7 +12,6 @@ function onUserSet(ev) {
 	const formData = new FormData(elForm)
 	const userOps = Object.fromEntries(formData)
     setMemeLines(userOps)
-
     // renderMeme()
 
     // setColors(user.bckClr, user.txtClr)
@@ -22,9 +21,9 @@ function onUserSet(ev) {
 function renderMeme() {
     gElCanvas = document.querySelector("canvas")
     gCtx = gElCanvas.getContext("2d")
-    const MEME = getMeme()
+    const meme = getMeme()
     const elImg = new Image()
-    elImg.src = `img/${MEME.selectedImgId}.jpg`
+    elImg.src = `img/${meme.selectedImgId}.jpg`
 
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
@@ -46,7 +45,12 @@ function drawText(text, x, y) {
 
 function onDraw(ev) {
     const { offsetX, offsetY } = ev
-    const MEME = getMeme()
+    const meme = getMeme()
 
-    drawText(MEME.lines[0].txt, offsetX, offsetY)
+    drawText(meme.lines[0].txt, offsetX, offsetY)
+}
+
+function onDownload(elLink) {
+    const meme = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = meme
 }

@@ -1,4 +1,11 @@
-.main-header {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.option-bar {
+  margin-bottom: 50px;
+}
+/* .main-header {
   height: 160px;
 }
 
@@ -18,4 +25,4 @@
 
 .main-header .main-nav a {
   color: var(--primary-1);
-}
+} */

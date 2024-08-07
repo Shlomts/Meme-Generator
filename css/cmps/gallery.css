@@ -12,7 +12,6 @@ body {
     display: grid;
     grid-template-columns: repeat(4, minmax(auto, 50vh));
     width: fit-content;
-    margin: 100px auto;
     background-color: #fcdfb9;
     gap: 20px 20px;
     padding: 20px;
