@@ -8,8 +8,8 @@ let gMeme = {
             txt: "I sometimes eat Falafel",
             lineWidth: 1,
             size: 40,
-            color: "white",
-            lineColor: "black",
+            color: "#ffffff",
+            lineColor: "#000000",
         },
     ],
 }
@@ -43,8 +43,8 @@ function creatLine() {
         txt: "I sometimes eat Humus",
         lineWidth: 1,
         size: 40,
-        color: "white",
-        lineColor: "black",
+        color: "#ffffff",
+        lineColor: "#000000",
     },)
 }
 

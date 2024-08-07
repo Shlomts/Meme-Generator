@@ -26,8 +26,16 @@ function addLine() {
 function switchLine() {
     selectLine()
     renderMeme()
+    loadSelectedData()
 }
 
+function loadSelectedData() {
+    const meme = getMeme()
+    const line = meme.lines[meme.selectedLineIdx]
+    document.querySelector(`#txt`).value = line.txt
+    document.querySelector(`#color`).value = line.color
+    document.querySelector(`#lineColor`).value = line.lineColor
+}
 
 
 function renderMeme() {
