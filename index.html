@@ -7,68 +7,76 @@
         <title>Meme Generator</title>
     </head>
     <body onload="onInit()">
+        <div class="main-container">
+            <header>
+                <h1>Meme Generator</h1>
+                <nav class="option-bar">
+                    <button class="gallery" onclick="showGallery()">
+                        Gallery
+                    </button>
+                    <button class="saved" onclick="showSaved()">Saved</button>
+                    <button class="random" onclick="showRandom()">
+                        RandoMeme
+                    </button>
+                    <select class="lang">
+                        <option id="en" value="en">English</option>
+                    </select>
+                </nav>
+            </header>
 
-        <header>
-            <h1>Meme Generator</h1>
-            <nav class="option-bar">
-                <button class="gallery" onclick="showGallery()">Gallery</button>
-                <button class="saved" onclick="showSaved()">Saved</button>
-                <button class="random" onclick="showRandom()">RandoMeme</button>
-                <select class="lang">
-                    <option id="en" value="en">English</option>
-                </select>
-            </nav>
-        </header>
+            <div class="gallery-container">
+                <!-- <section class="gallery-ops-container">
+                    <input type="search" placeholder="Search" />
+                    <section class="most-common">
+                        <button>Funny</button>
+                        <button>Animal</button>
+                        <button>Men</button>
+                        <button>Women</button>
+                        <button>Comic</button>
+                        <button>Smile</button>
+                        <button>More</button>   
+                    </section>
+                </section> -->
 
-        <div class="gallery-container">
-            <!-- <section class="gallery-ops-container">
-                <input type="search" placeholder="Search" />
-                <section class="most-common">
-                    <button>Funny</button>
-                    <button>Animal</button>
-                    <button>Men</button>
-                    <button>Women</button>
-                    <button>Comic</button>
-                    <button>Smile</button>
-                    <button>More</button>   
+                <section class="memes-gallery-grid"></section>
+            </div>
+
+            <div class="editor-container">
+                <section class="canvas-container">
+                    <canvas width="450" height="450">
+                    </canvas>
                 </section>
-            </section> -->
 
-            <section class="memes-gallery-grid"></section>
-        </div>
+                <section class="editor-ops-container">
+                    <div class="editor-ops">
+                        <br>
+                        <input type="text" name="txt" id="txt" oninput="onTextChange(event)" placeholder="CHANGE TEXT">
+                        <br>
+                        <input type="color" name="color" id="color" oninput="onSetFillColor(event)">Set Color</input>
+                        <br>
+                        <input type="color" name="lineColor" id="lineColor" oninput="onSetLineColor(event)">Set Line Color</input>
+                        <br>
+                        <button onclick="increaseFont()">⬆️</button>
+                        <button onclick="decreaseFont()">⬇️</button>
+                    </div>
+                    <br />
 
-        <div class="editor-container">
-            <section class="canvas-container">
-                <canvas width="450" height="450" onclick="onDraw(event)">
-                </canvas>
-            </section>
 
-
-            <section class="editor-ops-container">
-
-                <form class="editor-ops-form" onsubmit="onUserSet(event)">
-                    <br>
-                    <input type="text" name="txt" id="txt">
-                    <br>
-                    <input type="color" name="color" id="color">Set Color</input>
-                    <br>
-                    <input type="color" name="lineColor" id="lineColor">Set Line Color</input>
-                </form>
-                <br>
-                <a href="#" onclick="onDownload(this)" download="my-img.jpg">Download</a>
-            </section>
-
-        </div>
-        <div class="saved-container">
-            <section class="saved-gallery"></section>   
+                    <a href="#" onclick="onDownload(this)" download="my-img.jpg"
+                        >Download</a
+                    >
+                </section>
+            </div>
+            <div class="saved-container">
+                <section class="saved-gallery"></section>
+            </div>
         </div>
 
         <script src="js/utils.js"></script>
         <script src="js/servises/memeService.js"></script>
         <script src="js/servises/galleryService.js"></script>
-        <script src="js/controllers/mainController.js"></script>
         <script src="js/controllers/memeController.js"></script>
         <script src="js/controllers/galleryController.js"></script>
-
+        <script src="js/controllers/mainController.js"></script>
     </body>
 </html>

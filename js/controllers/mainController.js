@@ -1,6 +1,7 @@
 "use strict"
 
 function onInit() {
+    clearDom()
     showGallery()
 }
 
@@ -21,6 +22,7 @@ function openEditor() {
     clearDom()
     const elEditor = document.querySelector(`.editor-container`)
     elEditor.style.display = "flex"
+    document.querySelector(`#color`).value = `#ffffff`
 }
 
 function showRandom() {

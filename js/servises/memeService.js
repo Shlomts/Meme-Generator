@@ -6,7 +6,8 @@ let gMeme = {
     lines: [
         {
             txt: "I sometimes eat Falafel",
-            size: 1,
+            lineWidth: 1,
+            font: "40px Arial",
             color: "white",
             lineColor: "black",
         },
@@ -17,21 +18,26 @@ function getMeme() {
     return gMeme    
 }
 
-function setMemeLines(obj) {
-    if(!obj.txt) return
-    gMeme.lines[0].txt = obj.txt
-    // gMeme.lines[0] = {...obj}
+function setMemeLines(str) {
+    gMeme.lines[0].txt = str
 }
 
 function setMemeImg(img) {
     gMeme.selectedImgId = img.id
 }
 
-function setFontColors(obj) {
-    gMeme.lines[0].color = obj.color || "white"
-    gMeme.lines[0].lineColor = obj.lineColor || "black"
+function setFillColor(clr) {
+    gMeme.lines[0].color = clr || "white"
 }
 
-function selectLine() {
-    
+function setLineColor(clr) {
+    gMeme.lines[0].lineColor = clr || "black"
 }
+
+// function setFont(str) {
+
+// }
+
+// function selectLine() {
+    
+// }
