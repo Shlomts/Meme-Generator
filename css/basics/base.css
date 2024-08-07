@@ -8,36 +8,7 @@ html {
   line-height: 1.7142857142;
 }
 
-
-body {
-  text-align: center;
-}
-
-div {
-  display: none;
-}
-
-section {
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-
-img {
-  size: 100%;
-}
-
-
-
-
-
-/* body {
-  margin: 0;
-  font-size: 0.875rem;
-}
-
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -47,9 +18,36 @@ h6 {
   margin: 0 0 1em;
   line-height: 1.3;
   text-wrap: balance;
+} */
+
+
+body {
+    text-align: center;
+    margin: 0;
+    /* font-size: 0.875rem; */
 }
 
-h2 {
+div {
+    display: none;
+}
+
+section {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+
+
+
+/* h2 {
     font-size: 2.142857142em;
 }
 
@@ -58,10 +56,6 @@ p {
     text-wrap: pretty;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
 
 a {
   color: var(--primary-1);
@@ -69,4 +63,4 @@ a {
 
 a:hover {
   text-decoration: none;
-} */
+} */ 

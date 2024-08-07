@@ -1,5 +1,9 @@
 "use strict"
 
+function onInit() {
+    showGallery()
+}
+
 function showGallery() {
     clearDom()
     const elGallery = document.querySelector(`.gallery-container`)

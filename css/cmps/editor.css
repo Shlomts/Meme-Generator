@@ -2,23 +2,29 @@
     box-sizing: border-box;
 }
 
-.canvas-container {
-    width: auto;
-    margin: 10px auto;
-    background-color: brown;
-    border: 1px solid black;
-}
-
-canvas {
-    background-color: white;
-    border: 1px solid black;
-}
-/* 
-.editor-ops-container {
-    
-} */
 
 .editor-container{
     display: flex;
     align-items: center;
+}
+
+.canvas-container {
+    display: block;
+    width: inherit;
+    align-self: center;
+    flex-grow: 1;
+    border-radius: 10px;
+
+}
+
+canvas {
+    background-color: antiquewhite;
+    border: 1px dotted black;
+    border-radius: 10px;
+    align-self: center;
+}
+
+
+.editor-ops-container {
+    flex-grow: 1;
 }
