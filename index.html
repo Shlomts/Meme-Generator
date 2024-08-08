@@ -14,13 +14,13 @@
                     <button class="gallery" onclick="showGallery()">
                         Gallery
                     </button>
-                    <button class="saved" onclick="showSaved()">Saved</button>
+                    <!-- <button class="saved" onclick="showSaved()">Saved</button> -->
                     <button class="random" onclick="showRandom()">
                         RandoMeme
                     </button>
-                    <select class="lang">
+                    <!-- <select class="lang">
                         <option id="en" value="en">English</option>
-                    </select>
+                    </select> -->
                 </nav>
             </header>
 
@@ -60,13 +60,11 @@
                         <button onclick="changeFontSize(-5)">⬇️</button>
                         <button onclick="addLine()">➕</button>
                         <button onclick="switchLine()">🔁</button>
+                        <br>
+                        <a href="#" onclick="onDownload(this)" download="my-img.jpg"
+                        >Download</a>
                     </div>
-                    <br />
 
-
-                    <a href="#" onclick="onDownload(this)" download="my-img.jpg"
-                        >Download</a
-                    >
                 </section>
             </div>
             <div class="saved-container">
