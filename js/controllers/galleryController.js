@@ -14,6 +14,6 @@ function renderGallery() {
 function onImgSelect(id) {
     const img = getImgById(id)
     setMemeImg(img)
-    renderMeme()
+    initEditor()
     openEditor()
 }

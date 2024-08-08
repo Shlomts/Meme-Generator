@@ -29,7 +29,7 @@ function showRandom() {
     const gallery = getGallery()
     const id = getRandomIntInclusive(0, gallery.length-1)
     setMemeImg(gallery[id])
-    renderMeme()
+    initEditor()
     openEditor()
 }
 

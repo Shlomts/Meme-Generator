@@ -3,15 +3,7 @@
 let gMeme = {
     selectedImgId: 10,
     selectedLineIdx: 0,
-    lines: [
-        {
-            txt: "I sometimes eat Falafel",
-            lineWidth: 1,
-            size: 40,
-            color: "#ffffff",
-            lineColor: "#000000",
-        },
-    ],
+    lines: [],
 }
 
 function getMeme() {
@@ -20,6 +12,10 @@ function getMeme() {
 
 function setMemeLines(str) {
     gMeme.lines[gMeme.selectedLineIdx].txt = str
+}
+
+function clearLines() {
+    gMeme.lines = []
 }
 
 function setMemeImg(img) {
@@ -38,9 +34,11 @@ function changeLineSize(size) {
     gMeme.lines[gMeme.selectedLineIdx].size += size
 }
 
-function creatLine() {
+function creatLine(txt, x, y) {
     gMeme.lines.push({
-        txt: "I love laffa",
+        x,
+        y,
+        txt: txt.toUpperCase(),
         lineWidth: 1,
         size: 40,
         color: "#ffffff",

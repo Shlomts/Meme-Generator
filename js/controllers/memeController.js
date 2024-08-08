@@ -3,24 +3,31 @@
 let gElCanvas
 let gCtx
 
-
-function renderMeme() {
+function initEditor() {
     gElCanvas = document.querySelector("canvas")
     gCtx = gElCanvas.getContext("2d")
+    clearLines()
+    creatLine(`i love laffa`, gElCanvas.width / 2, 50)
+    renderMeme()
+}
+
+function renderMeme() {
     const meme = getMeme()
     const elImg = new Image()
     elImg.src = `img/${meme.selectedImgId}.jpg`
 
     elImg.onload = () => {
+        debugger
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
-        drawText(meme.lines[0], gElCanvas.width / 2, 50)
-        if(!meme.lines[1]) return
-        drawText(meme.lines[1], gElCanvas.width / 2, gElCanvas.height-50)
+        for (let i = 0; i < meme.lines.length; i++) {
+            drawText(meme.lines[i])
+        }
     }
 }
 
-function drawText(line, x, y) {
-    const sizeRatio = (line.size*0.465)
+function drawText(line) {
+    if (!line) return
+    const sizeRatio = line.size * 0.65
     const txtSize = line.txt.length * sizeRatio
     const meme = getMeme()
     gCtx.beginPath()
@@ -30,14 +37,15 @@ function drawText(line, x, y) {
     gCtx.font = `${line.size}px Arial`
     gCtx.textAlign = "center"
     gCtx.textBaseline = "middle"
-    gCtx.fillText(line.txt, x, y)
-    gCtx.strokeText(line.txt, x, y)
-    if(meme.lines[meme.selectedLineIdx] === line) drawRect(x-txtSize/2,txtSize , y-35)
+    gCtx.fillText(line.txt, line.x, line.y)
+    gCtx.strokeText(line.txt, line.x, line.y)
+    if (meme.lines[meme.selectedLineIdx] === line)
+        drawRect(line.x - txtSize / 2, txtSize, line.y - 35)
 }
 
 function drawRect(xStart, xEnd, y) {
     gCtx.beginPath()
-    gCtx.strokeStyle = 'purple'
+    gCtx.strokeStyle = "purple"
     gCtx.lineWidth = 3
     gCtx.strokeRect(xStart, y, xEnd, 60)
 }
@@ -58,7 +66,7 @@ function onSetLineColor(ev) {
 }
 
 function addLine() {
-    creatLine()
+    creatLine(`add text`, gElCanvas.width / 2, gElCanvas.height - 50)
     renderMeme()
 }
 
@@ -76,18 +84,12 @@ function loadSelectedData() {
     document.querySelector(`#lineColor`).value = line.lineColor
 }
 
-
 function onDownload(elLink) {
     const meme = gElCanvas.toDataURL("image/jpeg")
     elLink.href = meme
 }
 
-function increaseFont() {
-    changeLineSize(5)
-    renderMeme()
-}
-
-function decreaseFont() {
-    changeLineSize(-5)
+function changeFontSize(size) {
+    changeLineSize(size)
     renderMeme()
 }
