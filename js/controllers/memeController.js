@@ -8,6 +8,7 @@ function initEditor() {
     gCtx = gElCanvas.getContext("2d")
     clearLines()
     creatLine(`i love laffa`, gElCanvas.width / 2, 50)
+    addListeners()
     renderMeme()
 }
 
@@ -17,7 +18,6 @@ function renderMeme() {
     elImg.src = `img/${meme.selectedImgId}.jpg`
 
     elImg.onload = () => {
-        debugger
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
         for (let i = 0; i < meme.lines.length; i++) {
             drawText(meme.lines[i])
@@ -27,8 +27,6 @@ function renderMeme() {
 
 function drawText(line) {
     if (!line) return
-    const sizeRatio = line.size * 0.65
-    const txtSize = line.txt.length * sizeRatio
     const meme = getMeme()
     gCtx.beginPath()
     gCtx.lineWidth = line.lineWidth
@@ -40,7 +38,7 @@ function drawText(line) {
     gCtx.fillText(line.txt, line.x, line.y)
     gCtx.strokeText(line.txt, line.x, line.y)
     if (meme.lines[meme.selectedLineIdx] === line)
-        drawRect(line.x - txtSize / 2, txtSize, line.y - 35)
+        drawRect(line.startPos.x, line.txtLength, line.startPos.y)
 }
 
 function drawRect(xStart, xEnd, y) {
@@ -71,7 +69,7 @@ function addLine() {
 }
 
 function switchLine() {
-    selectLine()
+    toggleLine()
     renderMeme()
     loadSelectedData()
 }
@@ -92,4 +90,84 @@ function onDownload(elLink) {
 function changeFontSize(size) {
     changeLineSize(size)
     renderMeme()
+}
+
+
+function onDown(ev) {
+    const pos = getEvPos(ev)
+    const lineClicked = getClickedLine(pos)
+    console.log(lineClicked)
+    if(!lineClicked) return
+    selectLine(lineClicked)
+    renderMeme()
+    // setCircleDrag(true)
+
+    //* Save the pos we start from
+    // gStartPos = pos
+    // document.body.style.cursor = 'grabbing'
+}
+
+
+// function onMove(ev) {
+//     const { isDrag } = getCircle()
+//     if (!isDrag) return
+
+//     const pos = getEvPos(ev)
+//     //* Calc the delta, the diff we moved
+//     const dx = pos.x - gStartPos.x
+//     const dy = pos.y - gStartPos.y
+//     moveCircle(dx, dy)
+//     //* Save the last pos so we will remember where we`ve been and move accordingly
+//     gStartPos = pos
+//     //* The canvas (along with the circle) is rendered again after every move
+//     renderCanvas()
+// }
+
+
+// function onUp() {
+//     setCircleDrag(false)
+//     document.body.style.cursor = 'grab'
+// }
+
+
+function getEvPos(ev) {
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    if (['touchstart', 'touchmove', 'touchend'].includes(ev.type)) {
+        //* Prevent triggering the mouse screen dragging event
+        ev.preventDefault()
+        //* Gets the first touch point
+        ev = ev.changedTouches[0]
+        //* Calc the right pos according to the touch screen
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    //* Listen for resize ev
+    // window.addEventListener('resize', () => {
+    //     resizeCanvas()
+    //     renderCanvas()
+    // })
+}
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousedown', onDown)
+    // gElCanvas.addEventListener('mousemove', onMove)
+    // gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    // gElCanvas.addEventListener('touchmove', onMove)
+    // gElCanvas.addEventListener('touchend', onUp)
 }
