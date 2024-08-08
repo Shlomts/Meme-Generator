@@ -40,7 +40,7 @@ function changeLineSize(size) {
 
 function creatLine() {
     gMeme.lines.push({
-        txt: "I sometimes eat Humus",
+        txt: "I love laffa",
         lineWidth: 1,
         size: 40,
         color: "#ffffff",
