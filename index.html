@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/style.css" />
         <title>Meme Generator</title>
+        <script src="https://kit.fontawesome.com/adae50ec51.js" crossorigin="anonymous"></script>
     </head>
     <body onload="onInit()">
         <div class="main-container">
@@ -49,24 +50,24 @@
 
                 <section class="editor-ops-container">
                     <div class="editor-ops">
-                        <br>
                         <input type="text" name="txt" id="txt" oninput="onTextChange(event)" placeholder="CHANGE TEXT">
-                        <br>
-                        <input type="color" name="color" id="color" oninput="onSetFillColor(event)">Set Color</input>
-                        <br>
-                        <input type="color" name="lineColor" id="lineColor" oninput="onSetLineColor(event)">Set Line Color</input>
-                        <br>
-                        <button onclick="changeFontSize(5)">⬆️</button>
-                        <button onclick="changeFontSize(-5)">⬇️</button>
-                        <button onclick="addLine()">➕</button>
-                        <button onclick="switchLine()">🔁</button>
-                        <br>
-                        <a href="#" onclick="onDownload(this)" download="my-img.jpg"
-                        >Download</a>
+                        <input type="color" name="color" id="color" class="color-picker" oninput="onSetFillColor(event)"></input>
+                        <button class="fill-color" onclick="onFillColorPicker()"><i class="fa-solid fa-fill-drip"></i></button>
+                        <input type="color" name="lineColor" id="lineColor" class="color-picker" oninput="onSetLineColor(event)"></input>
+                        <button class="line-color" onclick="onLineColorPicker()"><i class="fa-solid fa-brush"></i></button>
+                        <button class="bigger" onclick="changeFontSize(5)"><i class="fa-solid fa-font"></i></button>
+                        <button class="smaller" onclick="changeFontSize(-5)"><i class="fa-solid fa-font"></i></button>
+                        <button class="add-line" onclick="addLine()"><i class="fa-solid fa-plus"></i></button>
+                        <button class="switch-line" onclick="switchLine()"><i class="fa-solid fa-repeat"></i></button>
+                        <button class="delete-line" onclick="onDeleteLine()"><i class="fa-regular fa-trash-can"></i></button>
+                        <a class="share" href="#" onclick="onShare(this)"
+                        >Share <i class="fa-brands fa-facebook"></i></a>
+                        <a class="download" href="#" onclick="onDownload(this)" download="my-img.jpg"
+                        >Download <i class="fa-solid fa-circle-down" aria-hidden="true"></i></a>
                     </div>
-
                 </section>
             </div>
+
             <div class="saved-container">
                 <section class="saved-gallery"></section>
             </div>
@@ -74,6 +75,7 @@
 
         <script src="js/utils.js"></script>
         <script src="js/servises/memeService.js"></script>
+        <script src="js/servises//facebookService.js"></script>
         <script src="js/servises/galleryService.js"></script>
         <script src="js/controllers/memeController.js"></script>
         <script src="js/controllers/galleryController.js"></script>

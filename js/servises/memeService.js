@@ -11,7 +11,8 @@ function getMeme() {
 }
 
 function setMemeLines(str) {
-    gMeme.lines[gMeme.selectedLineIdx].txt = str
+    gMeme.lines[gMeme.selectedLineIdx].txt = str.toUpperCase()
+    changeLineSize(0)
 }
 
 function clearLines() {
@@ -74,4 +75,9 @@ function toggleLine() {
 function selectLine(line) {
     const idx = gMeme.lines.findIndex(currLine => currLine === line)
     gMeme.selectedLineIdx = idx
+}
+
+function deleteLine(line) {
+    const idx = gMeme.lines.findIndex(currLine => currLine === line)
+    gMeme.lines.splice(idx, 1)
 }

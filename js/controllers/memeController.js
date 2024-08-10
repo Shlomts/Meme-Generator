@@ -10,34 +10,42 @@ function initEditor() {
     creatLine(`i love laffa`, gElCanvas.width / 2, 50)
     addListeners()
     renderMeme()
+    loadSelectedData()
 }
 
-function renderMeme() {
+function renderMeme(onDownload = false) {
     const meme = getMeme()
     const elImg = new Image()
     elImg.src = `img/${meme.selectedImgId}.jpg`
 
-    elImg.onload = () => {
+    if(!onDownload) {
+        elImg.onload = () => {
+            gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+            for (let i = 0; i < meme.lines.length; i++) {
+                drawText(meme.lines[i])
+            }
+        }
+    } else {
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
         for (let i = 0; i < meme.lines.length; i++) {
-            drawText(meme.lines[i])
+            drawText(meme.lines[i], true)
         }
     }
 }
 
-function drawText(line) {
+function drawText(line, noRect = false) {
     if (!line) return
     const meme = getMeme()
     gCtx.beginPath()
     gCtx.lineWidth = line.lineWidth
     gCtx.strokeStyle = line.lineColor
     gCtx.fillStyle = line.color
-    gCtx.font = `${line.size}px Arial`
+    gCtx.font = `bold ${line.size}px Poppins`
     gCtx.textAlign = "center"
     gCtx.textBaseline = "middle"
     gCtx.fillText(line.txt, line.x, line.y)
     gCtx.strokeText(line.txt, line.x, line.y)
-    if (meme.lines[meme.selectedLineIdx] === line)
+    if (meme.lines[meme.selectedLineIdx] === line && !noRect)
         drawRect(line.startPos.x, line.txtLength, line.startPos.y)
 }
 
@@ -54,12 +62,20 @@ function onTextChange(ev) {
 }
 
 function onSetFillColor(ev) {
+    document.querySelector(".fill-color").style.color = ev.target.value
     setFillColor(ev.target.value)
     renderMeme()
 }
 
 function onSetLineColor(ev) {
+    document.querySelector(".line-color").style.color = ev.target.value
     setLineColor(ev.target.value)
+    renderMeme()
+}
+
+function onDeleteLine() {
+    const meme = getMeme()
+    deleteLine(meme.lines[meme.selectedLineIdx])
     renderMeme()
 }
 
@@ -80,18 +96,24 @@ function loadSelectedData() {
     document.querySelector(`#txt`).value = line.txt
     document.querySelector(`#color`).value = line.color
     document.querySelector(`#lineColor`).value = line.lineColor
+    document.querySelector(".line-color").style.color = line.lineColor
+    document.querySelector(".fill-color").style.color = line.color
 }
 
 function onDownload(elLink) {
+    renderMeme(true)
     const meme = gElCanvas.toDataURL("image/jpeg")
     elLink.href = meme
+}
+
+function onShare(elLink) {
+    shareImg(gElCanvas)
 }
 
 function changeFontSize(size) {
     changeLineSize(size)
     renderMeme()
 }
-
 
 function onDown(ev) {
     const pos = getEvPos(ev)
@@ -100,34 +122,17 @@ function onDown(ev) {
     if(!lineClicked) return
     selectLine(lineClicked)
     renderMeme()
-    // setCircleDrag(true)
 
-    //* Save the pos we start from
-    // gStartPos = pos
-    // document.body.style.cursor = 'grabbing'
+}
+
+function onFillColorPicker() {
+    document.querySelector('#color').click()
 }
 
 
-// function onMove(ev) {
-//     const { isDrag } = getCircle()
-//     if (!isDrag) return
-
-//     const pos = getEvPos(ev)
-//     //* Calc the delta, the diff we moved
-//     const dx = pos.x - gStartPos.x
-//     const dy = pos.y - gStartPos.y
-//     moveCircle(dx, dy)
-//     //* Save the last pos so we will remember where we`ve been and move accordingly
-//     gStartPos = pos
-//     //* The canvas (along with the circle) is rendered again after every move
-//     renderCanvas()
-// }
-
-
-// function onUp() {
-//     setCircleDrag(false)
-//     document.body.style.cursor = 'grab'
-// }
+function onLineColorPicker() {
+    document.querySelector('#lineColor').click()
+}
 
 
 function getEvPos(ev) {
@@ -153,21 +158,12 @@ function getEvPos(ev) {
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-    //* Listen for resize ev
-    // window.addEventListener('resize', () => {
-    //     resizeCanvas()
-    //     renderCanvas()
-    // })
 }
 
 function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
-    // gElCanvas.addEventListener('mousemove', onMove)
-    // gElCanvas.addEventListener('mouseup', onUp)
 }
 
 function addTouchListeners() {
     gElCanvas.addEventListener('touchstart', onDown)
-    // gElCanvas.addEventListener('touchmove', onMove)
-    // gElCanvas.addEventListener('touchend', onUp)
 }
