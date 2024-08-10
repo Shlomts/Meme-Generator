@@ -38,5 +38,97 @@ canvas {
 
 .editor-ops {
     text-align: center;
-    padding-left: 20%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "txt txt txt txt"
+        "switch-line add-line . delete-line"
+        "bigger smaller-font fill-color line-color"
+        "share share download download";
+    gap: 2vh 1vw;
+    background: var(--light-background);
+    padding: 40px;
+    width: 100%;
+    min-height: 100%;
+    border-radius: 10px;
+    padding-top: 65px;
+}
+
+.editor-ops button {
+    background: transparent;
+    border: 0;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+
+.editor-ops .color-picker {
+    visibility: hidden  ;
+}
+
+.delete-line {
+    grid-area: delete-line;
+    color: rgb(231 63 63);
+}
+
+#txt {
+    grid-area: txt;
+    text-align: center;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    color: var(--input-text);
+}
+
+.fill-color {
+    grid-area: fill-color;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+.line-color {
+    grid-area: line-color;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+.bigger {
+    grid-area: bigger;
+    color: #21AC91;
+}
+
+.editor-ops button.smaller {
+    grid-area: smaller-font;
+    font-size: 0.9rem;
+    color: #21AC91;
+}
+
+.add-line {
+    grid-area: add-line;
+    color: #9b4be4;
+}
+
+.switch-line {
+    grid-area: switch-line;
+    color: #0dd2d2;
+}
+
+.editor-ops a.download {
+    grid-area: download;
+    background-color: #9b4be4;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
+    color: white;
+}
+
+.editor-ops a.share {
+    grid-area: share;
+    background-color: #31c3d6;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
+    color: white;
 }
