@@ -17,17 +17,3 @@ body {
     padding: 20px;
     grid-auto-rows: max-content;
 }
-
-
-
-/* 
-.select-img-container img {
-    width: 200px;
-    cursor: pointer;
-    filter: grayscale(1);
-}
-
-.select-img-container img:hover {
-    transition: 0.5s;
-    filter: unset;
-} */

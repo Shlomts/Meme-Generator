@@ -1,10 +1,6 @@
 :root {
-  /* pallete */
-  --primary-1: #000;
-  --primary-base: #626262;
-  --primary--1: #b4ad9e;
-  --primary--2: #f0f0f0;
-  
-  /* layout vars */
-  --card-layout-padding: 60px;
+  --dark-background: rgb(62, 75, 104, 1);
+  --light-background: #383B42;
+  --font-color: #22252C;
+  --input-text: #3D3D3D;
 }

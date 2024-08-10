@@ -5,60 +5,46 @@
 
 header {
   display: flex;
-  background-image: linear-gradient(to right, rgb(22, 164, 189),rgb(80, 201, 139) );
+  background-image: linear-gradient(to right, #0F9AB4,#30BC72 );
   border-radius: 60px;
+  letter-spacing: -1px;
   margin-bottom : 15px;
   padding: 10px 0;
-
+  height: 70px;
 }
 
 h1 {
   flex-grow: 1;
   color: white;
+  font-weight: 500;
+  font-size: 1.12em;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 8vw;
+  align-self: center;
+  cursor: pointer;
 }
 
 .option-bar {
   align-self: center;
-  flex-grow: 0;
+  flex-grow: 1;
   margin: 0;
+  gap: 200vw;
 }
 
 .option-bar button {
   background-color: transparent;
   color: white;
-  font-weight: 600;
+  font-size: 0.95em;
+  font-weight: 500;
   border: 0;
   border-radius: 20px;
   padding: 7px 15px;
+  font-family: "Poppins", sans-serif;
+  margin: 0 1vw;
+  cursor: pointer;
 }
 
 .option-bar button:hover{
   background-color: white;
-  color: aqua;
+  color: #21AC91;
 }
-
-
-
-/* .main-header {
-  height: 160px;
-}
-
-.main-header .logo {
-  font-family: inconsolata, monospace;
-  color: var(--primary-1);
-  text-transform: uppercase;
-  font-size: 2.14285714em;
-  letter-spacing: 0.2em;
-}
-
-.main-header .main-nav a {
-  color: inherit;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.main-header .main-nav a {
-  color: var(--primary-1);
-} */
